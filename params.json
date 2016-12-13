@@ -1,0 +1,6 @@
+{
+  "name": "CloudFlareDynDns",
+  "tagline": "Get a subdomain pointing the public address of your private (home) network, when your internet provider gives you a dynamic IP.",
+  "body": "### Requirements.\r\n* Local Linux machine, with CURL & PHP5+\r\n* A domain name whose DNS are managed by Cloudflare.com\r\n\r\n### Instructions.\r\n1. Get your public IP [click here](https://ipinfo.io/ip) for instance\r\n2. Setup a subdomain with Cloudflare DNS pointing to this IP (create a A record for this subdomain on your domain zone)\r\n3. Clone the repo into your local machine\r\n4. Open dummy-config.php, modify with your data, and save it into private-config.php\r\n5. Set up a crontab */5 * * * /PATH_TO/cronjob.php\r\n\r\n### How it works\r\nEvery 5 minutes the script queries ipinfo.io/ip (or an address of yours if you want copy the file ip.php to your site location) and compares it with the content of the file \"myIp\", if it changed, it updates the clouflare DNS for the subdomain and replace the value in \"myIp\". The file \"myIp\" is created at the first run.\r\n",
+  "note": "Don't delete this file! It's used internally to help with page regeneration."
+}

@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>CloudFlareDynDns by websioux</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-light.css">
+    <meta name="viewport" content="width=device-width">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>CloudFlareDynDns</h1>
+        <p>Get a subdomain pointing the public address of your private (home) network, when your internet provider gives you a dynamic IP.</p>
+
+        <p class="view"><a href="https://github.com/websioux/CloudflareDynDns">View the Project on GitHub <small>websioux/CloudflareDynDns</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/websioux/CloudflareDynDns/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/websioux/CloudflareDynDns/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/websioux/CloudflareDynDns">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h3>
+<a id="requirements" class="anchor" href="#requirements" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Requirements.</h3>
+
+<ul>
+<li>Local Linux machine, with CURL &amp; PHP5+</li>
+<li>A domain name whose DNS are managed by Cloudflare.com</li>
+</ul>
+
+<h3>
+<a id="instructions" class="anchor" href="#instructions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Instructions.</h3>
+
+<ol>
+<li>Get your public IP <a href="https://ipinfo.io/ip">click here</a> for instance</li>
+<li>Setup a subdomain with Cloudflare DNS pointing to this IP (create a A record for this subdomain on your domain zone)</li>
+<li>Clone the repo into your local machine</li>
+<li>Open dummy-config.php, modify with your data, and save it into private-config.php</li>
+<li>Set up a crontab */5 * * * /PATH_TO/cronjob.php</li>
+</ol>
+
+<h3>
+<a id="how-it-works" class="anchor" href="#how-it-works" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>How it works</h3>
+
+<p>Every 5 minutes the script queries ipinfo.io/ip (or an address of yours if you want copy the file ip.php to your site location) and compares it with the content of the file "myIp", if it changed, it updates the clouflare DNS for the subdomain and replace the value in "myIp". The file "myIp" is created at the first run.</p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/websioux">websioux</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
